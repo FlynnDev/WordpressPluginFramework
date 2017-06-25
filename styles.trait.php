@@ -37,13 +37,20 @@
 			$this->admin_styles[] = [$name, $file, $deps];
 		}
 
+		/**
+		 * Build Style Url
+		 *
+		 * @param string $file File relative to project root
+		 *
+		 * @return string Complete URL
+		 */
 		private function styleUrl($file) {
-			return plugins_url( $this->styles_dir . $file, $this->root );
+			return plugins_url( $this->styles_dir . $file, $this->getFile() );
 		}
 
 		public function styles_hook_init() {
 			foreach ( $this->styles as list( $name, $file, $deps ) ) {
-				wp_register_style( $this->pre( $name ), $this->styleUrl( $file ), $deps, $this->version, 'all' );
+				wp_register_style( $this->pre( $name ), $this->styleUrl( $file ), $deps, $this->getVersion(), 'all' );
 			}
 		}
 		public function styles_hook_admin_enqueue_scripts() {
@@ -58,7 +65,7 @@
 		}
 		public function styles_hook_admin_init() {
 			foreach ( $this->admin_styles as list( $name, $file, $deps ) ) {
-				wp_register_style( $this->pre( 'admin', $name ), $this->styleUrl( $file ), $deps, $this->version, 'all' );
+				wp_register_style( $this->pre( 'admin', $name ), $this->styleUrl( $file ), $deps, $this->getVersion(), 'all' );
 			}
 		}
 

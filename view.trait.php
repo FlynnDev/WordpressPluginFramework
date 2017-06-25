@@ -38,4 +38,18 @@
 			$this->view_dir = $dir;
 		}
 
+		public function render($template, $view = []) {
+
+			$defaults = [
+				'prefix' => $this->getPrefix(),
+				'plugin_name' => $this->getName(),
+				'plugin_version' => $this->getVersion(),
+				'plugin_root' => dirname($this->getRoot())
+			];
+
+			return $this->view->render($template, array_merge($defaults, $view));
+
+
+		}
+
 	}

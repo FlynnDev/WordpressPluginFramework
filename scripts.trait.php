@@ -4,9 +4,7 @@
 		private $scripts_dir    = 'scripts/';
 		private $scripts        = [];
 		private $admin_scripts  = [];
-		private function scriptUrl($file) {
-			return plugins_url( $this->scripts_dir . $file, $this->root );
-		}
+
 
 		/**
 		 * Set Script Directory
@@ -32,6 +30,17 @@
 		}
 
 		/**
+		 * Build Script Url
+		 *
+		 * @param string $file File relative to project root
+		 *
+		 * @return string Complete URL
+		 */
+		private function scriptUrl($file) {
+			return plugins_url( $this->scripts_dir . $file, $this->getFile() );
+		}
+
+		/**
 		 * Add Admin Script
 		 *
 		 * @param string $name Script Name
@@ -44,13 +53,13 @@
 
 		public function scripts_hook_init() {
 			foreach($this->scripts as list($name, $file, $deps)) {
-				wp_register_script( $this->pre($name), $this->scriptUrl($file), $deps, $this->version, true );
+				wp_register_script( $this->pre($name), $this->scriptUrl($file), $deps, $this->getVersion(), true );
 			}
 		}
 
 		public function scripts_hook_admin_init(){
 			foreach($this->admin_scripts as list($name, $file, $deps)) {
-				wp_register_script( $this->pre('admin', $name), $this->scriptUrl($file), $deps, $this->version, true );
+				wp_register_script( $this->pre('admin', $name), $this->scriptUrl($file), $deps, $this->getVersion(), true );
 			}
 		}
 
