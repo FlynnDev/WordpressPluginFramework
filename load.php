@@ -1,20 +1,28 @@
+<?php 
+/**
+ * Package:  WordPress Plugin Framework
+ * Version:  1.0.20
+ * Date:     25-06-2017
+ * Copyright 2017 Mike Flynn - mflynn@flynndev.us
+ */ 
+ ?>
 <?php
 
 if(!class_exists("PluginFramework\Core")) {
 	require_once( 'vendor/autoload.php' );
 
-	require_once( 'helpers.trait.php' );
-	require_once( 'errors.trait.php' );
-	require_once( 'view.trait.php' );
-	require_once( 'data.trait.php' );
-	require_once( 'shortcode.trait.php' );
-	require_once( 'scripts.trait.php' );
-	require_once( 'styles.trait.php' );
-	require_once( 'resources.trait.php' );
-	require_once( 'pages.trait.php' );
-	require_once( 'plugininfo.trait.php' );
-	require_once( 'hooks.trait.php');
-	require_once( 'security.trait.php');
+	require_once( 'build/helpers.trait.php' );
+	require_once( 'build/errors.trait.php' );
+	require_once( 'build/view.trait.php' );
+	require_once( 'build/data.trait.php' );
+	require_once( 'build/shortcode.trait.php' );
+	require_once( 'build/scripts.trait.php' );
+	require_once( 'build/styles.trait.php' );
+	require_once( 'build/resources.trait.php' );
+	require_once( 'build/pages.trait.php' );
+	require_once( 'build/plugininfo.trait.php' );
+	require_once( 'build/hooks.trait.php');
+	require_once( 'build/security.trait.php');
 
-	require_once( 'core.class.php' );
+	require_once( 'build/core.class.php' );
 }
