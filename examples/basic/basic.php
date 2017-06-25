@@ -17,7 +17,7 @@ include('../load.php');
  * Enqueues a style
  * Registers an admin page with a working form
  * Creates a shortcode
- * 
+ *
  */
 
 class BasicPlugin extends PluginFramework\Core {
