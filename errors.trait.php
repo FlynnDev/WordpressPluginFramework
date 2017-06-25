@@ -26,4 +26,8 @@
 			wp_die( __( $this->errors[$name] . "<br>" . $msg ) );
 		}
 
+		public function debug($dump){
+			wp_die("<pre>" . var_export($dump, true) . "</pre>");
+		}
+
 	}

@@ -1,5 +1,6 @@
 <?php
-if(!class_exists("PluginFramework")) {
+
+if(!class_exists("PluginFramework\Core")) {
 	require_once( 'vendor/autoload.php' );
 
 	require_once( 'helpers.trait.php' );
@@ -12,6 +13,8 @@ if(!class_exists("PluginFramework")) {
 	require_once( 'resources.trait.php' );
 	require_once( 'pages.trait.php' );
 	require_once( 'plugininfo.trait.php' );
+	require_once( 'hooks.trait.php');
+	require_once( 'security.trait.php');
 
 	require_once( 'core.class.php' );
 }

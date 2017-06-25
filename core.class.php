@@ -1,9 +1,11 @@
 <?php
 
 namespace PluginFramework;
+
 /**
  * Plugin Framework
  * Author: Mike Flynn <mflynn@flynndev.us>
+ * Version: 1.0
  *
  * Does the heavy lifting for plugin creation as far as adding Menu items, scripts, styles, and shortcodes
  */

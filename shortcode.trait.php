@@ -19,7 +19,11 @@
 		 * @param string $prefix Prefix
 		 */
 		public function setShortcodePrefix($prefix){
-			$this->shortcode_prefix = $prefix == "" ? "" : $this->sterilize($prefix) . "_";
+			$this->shortcode_prefix = $this->sterilize($prefix);
+		}
+
+		public function getShortcodePrefix() {
+			return $this->shortcode_prefix  == "" ? "" : $this->sterilize($$this->shortcode_prefix) . '_';
 		}
 
 		/**
@@ -67,12 +71,19 @@
 
 			$shortcode_methods = preg_grep('/^shortcode_/', get_class_methods($this));
 
+
 			// Method method
-			foreach($shortcode_methods as $method) add_shortcode($this->shortcode_pre(str_replace('shortcode_','',$method)), [&$this, $method]);
+			foreach($shortcode_methods as $method) {
+				$name = $this->shortcode_pre( str_replace( 'shortcode_', '', $method ) );
+				add_shortcode( $name, [ &$this, $method ] );
+			}
+
+			$debug['functions'] = $this->shortcodes;
 
 			// Array method
-			foreach($this->shortcodes as $shortcode => $func)
-				add_shortcode( $this->shortcode_pre($shortcode) , $func);
+			foreach($this->shortcodes as $shortcode => $func) {
+				add_shortcode( $this->shortcode_pre( $shortcode ), $func );
+			}
 		}
 
 	}
