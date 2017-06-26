@@ -15,7 +15,9 @@ module.exports = function(grunt){
                 dest: 'build/',
                 options : {
                     process : function(content){
-                        return content.replace(/PluginFramework/g, `PluginFramework\\V_${package.version}`)
+                        let v = package.version;
+                        let vs = v.split('.');
+                        return content.replace(/PluginFramework/g, `PluginFramework\\V_${vs[0]}_${vs[1]}`)
                     }
                 }
             },

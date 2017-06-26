@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ `git status --porcelain -uno . | grep -i "MM"` ]]; then
+if [[ `git status --porcelain -uno | grep -i "MM"` ]]; then
 
     versiony package.json --patch
     grunt
@@ -9,5 +9,5 @@ if [[ `git status --porcelain -uno . | grep -i "MM"` ]]; then
     echo "No Changes"
 
 fi;
-
+ 
 git add .
