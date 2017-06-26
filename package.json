@@ -2,7 +2,7 @@
   "name": "flynndev_wordpress_plugin_framework",
   "title": "WordPress Plugin Framework",
   "version": "1.1.28",
-  "description": "WordPress Plugin Framework === By: Mike Flynn",
+  "description": "WordPress Plugin Framework",
   "main": "load.php",
   "directories": {
     "example": "examples"
@@ -20,6 +20,11 @@
     "Framework",
     "Plugin",
     "FlynnDev"
+  ],
+  "tags": [
+    "WordPress",
+    "Plugin",
+    "Framework"
   ],
   "author": {
     "name": "Mike Flynn",
