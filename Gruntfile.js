@@ -1,6 +1,10 @@
 module.exports = function(grunt){
 
     let package = grunt.file.readJSON('package.json');
+    let v = package.version;
+    let vs = v.split('.');
+
+    let apply_version = function(content){ return content.replace(/PluginFramework/g, `PluginFramework\\V_${vs[0]}_${vs[1]}`) };
 
     grunt.initConfig({
         pkg: package,
@@ -14,11 +18,15 @@ module.exports = function(grunt){
                 src: '**',
                 dest: 'build/',
                 options : {
-                    process : function(content){
-                        let v = package.version;
-                        let vs = v.split('.');
-                        return content.replace(/PluginFramework/g, `PluginFramework\\V_${vs[0]}_${vs[1]}`)
-                    }
+                    process : apply_version
+                }
+            },
+
+            readme: {
+                src: 'README.template.md',
+                dest: 'README.md',
+                options : {
+                    process : apply_version
                 }
             },
 
@@ -26,7 +34,7 @@ module.exports = function(grunt){
                 src: 'build/load.php',
                 dest: 'load.php',
                 options:{
-                    process : function(content, srcpath) {
+                    process : function(content) {
                         return content.replace(/\.\.\/src/g, '../build').replace(/\.\.\//g, '');
                     }
                 }
@@ -58,6 +66,6 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-banner');
 
-    grunt.registerTask('default', ['copy:main','copy:loader','usebanner']);
+    grunt.registerTask('default', ['copy:main','copy:loader','copy:readme','usebanner']);
 
 };
