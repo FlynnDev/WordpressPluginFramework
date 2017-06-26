@@ -1,14 +1,14 @@
 <?php 
 /**
  * Package:  WordPress Plugin Framework
- * Version:  1.0.20
+ * Version:  1.1.24
  * Date:     25-06-2017
  * Copyright 2017 Mike Flynn - mflynn@flynndev.us
  */ 
  ?>
 <?php
 
-if(!class_exists("PluginFramework\Core")) {
+if(!class_exists("PluginFramework\V_1.1.24\Core")) {
 	require_once( 'vendor/autoload.php' );
 
 	require_once( 'build/helpers.trait.php' );

@@ -1,13 +1,13 @@
 <?php 
 /**
  * Package:  WordPress Plugin Framework
- * Version:  1.0.20
+ * Version:  1.1.24
  * Date:     25-06-2017
  * Copyright 2017 Mike Flynn - mflynn@flynndev.us
  */ 
  ?>
 <?php
-	namespace PluginFramework;
+	namespace PluginFramework\V_1.1.24;
 	trait Shortcode {
 
 		public $shortcode_prefix = '';

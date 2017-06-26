@@ -1,7 +1,7 @@
 {
   "name": "flynndev_wordpress_plugin_framework",
   "title": "WordPress Plugin Framework",
-  "version": "1.1.20",
+  "version": "1.1.24",
   "description": "WordPress Plugin Framework === By: Mike Flynn",
   "main": "load.php",
   "directories": {
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "versiony package.json --patch && grunt"
+    "build": "./build.sh"
   },
   "repository": {
     "type": "git",

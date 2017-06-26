@@ -1,7 +1,9 @@
 module.exports = function(grunt){
 
+    let package = grunt.file.readJSON('package.json');
+
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+        pkg: package,
 
         clean:['build/*', 'load.php'],
 
@@ -10,11 +12,16 @@ module.exports = function(grunt){
                 expand: true,
                 cwd: 'src',
                 src: '**',
-                dest: 'build/'
+                dest: 'build/',
+                options : {
+                    process : function(content){
+                        return content.replace(/PluginFramework/g, `PluginFramework\\V_${package.version}`)
+                    }
+                }
             },
 
             loader: {
-                src: 'src/load.php',
+                src: 'build/load.php',
                 dest: 'load.php',
                 options:{
                     process : function(content, srcpath) {
