@@ -7,6 +7,7 @@ if [[ `git status --porcelain -uno . | grep -i "MM"` ]]; then
 
     else
     echo "No Changes"
+
 fi;
 
 git add .
