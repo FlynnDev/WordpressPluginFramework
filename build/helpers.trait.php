@@ -70,7 +70,7 @@
 		 * @return string
 		 */
 		public function pre_to_title($s){
-			$s = preg_replace( '^[^_]+_', '', $s ); // Remove First Chunk
+			$s = preg_replace( '/^[^_]+_/', '', $s ); // Remove First Chunk
 			$s = str_replace("_", " ", $s);
 			$s = ucwords($s);
 			return $s;
