@@ -72,4 +72,5 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-banner');
 
+    grunt.registerTask('default', [ 'clean', 'copy:build', 'copy:readme', 'usebanner',  'copy:dist']);
 };
