@@ -9,12 +9,12 @@ if(!class_exists("PluginFramework\Core")) {
 		$path = $folder . '/' . $filename;
 		if (is_file($path)) require_once ($path);
 	}
-
+/*
 	$folder = dirname(__FILE__) . '/' . 'classes';
 	foreach (scandir($folder) as $filename) {
 		$path = $folder . '/' . $filename;
 		if (is_file($path)) require_once ($path);
 	}
-
+*/
 	require_once( 'core.class.php' );
 }
