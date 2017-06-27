@@ -61,7 +61,7 @@ module.exports = function(grunt){
                     linebreak: true
                 },
                 files : {
-                    src : ['build/*.php']
+                    src : ['build/load.php']
                 }
             }
         }
