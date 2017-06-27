@@ -1,7 +1,7 @@
 {
   "name": "flynndev_wordpress_plugin_framework",
   "title": "WordPress Plugin Framework",
-  "version": "1.1.66",
+  "version": "1.1.67",
   "description": "WordPress Plugin Framework",
   "main": "load.php",
   "directories": {
