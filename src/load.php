@@ -4,13 +4,13 @@
 if(!class_exists("PluginFramework\Core")) {
 	require_once( 'mustache.php' );
 
-	$folder = 'traits';
-	foreach (scandir($folder) as $filename) {
+	$folder = dirname(__FILE__) . '/' . 'traits';
+	foreach (scandir( $folder) as $filename) {
 		$path = $folder . '/' . $filename;
 		if (is_file($path)) require_once ($path);
 	}
 
-	$folder = 'classes';
+	$folder = dirname(__FILE__) . '/' . 'classes';
 	foreach (scandir($folder) as $filename) {
 		$path = $folder . '/' . $filename;
 		if (is_file($path)) require_once ($path);
