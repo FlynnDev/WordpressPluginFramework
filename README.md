@@ -11,3 +11,21 @@ Install
 1. Create a class that extends `PluginFramework\V_1_1\Core` that has `$this->start('Plugin Name', 'version', __FILE__)` in the constructor
 1. See the examples for more details
 1. Profit!
+
+Features
+--------
++ Shortcodes
++ Admin Pages
++ Mustache Template Engine
++ Scripts
++ Styles
++ Admin Scripts
++ Admin Styles
++ Basic Security Settings
+
+Todo
+----
+- Custom Post Types
+- Meta Boxes
+- Shortcode atts
+- More Verbose Data Controls
