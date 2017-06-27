@@ -1,5 +1,6 @@
 <?php
 	namespace PluginFramework;
+
 	trait Helpers {
 		/**
 		 * Sterilize String

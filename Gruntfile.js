@@ -9,10 +9,10 @@ module.exports = function(grunt){
     grunt.initConfig({
         pkg: package,
 
-        clean:['build/*', 'load.php'],
+        clean:['build', 'load.php', 'dist'],
 
-        copy:{
-            main: {
+        copy: {
+            build: {
                 expand: true,
                 cwd: 'src',
                 src: '**',
@@ -20,6 +20,13 @@ module.exports = function(grunt){
                 options : {
                     process : apply_version
                 }
+            },
+
+            dist: {
+                expand: true,
+                cwd: 'build',
+                src: '**',
+                dest: 'dist'
             },
 
             readme: {
@@ -33,10 +40,8 @@ module.exports = function(grunt){
             loader: {
                 src: 'build/load.php',
                 dest: 'load.php',
-                options:{
-                    process : function(content) {
-                        return content.replace(/\.\.\/src/g, '../build').replace(/\.\.\//g, '');
-                    }
+                options: {
+                    process : function(content) { return content.replace(/\.\//g, 'dist/'); }
                 }
             }
         },
@@ -60,12 +65,12 @@ module.exports = function(grunt){
                 }
             }
         }
+
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-banner');
 
-    grunt.registerTask('default', ['copy:main','copy:loader','copy:readme','usebanner']);
-
+    grunt.registerTask('default', ['copy:build', 'copy:loader', 'copy:readme', 'usebanner', 'copy:dist']);
 };
