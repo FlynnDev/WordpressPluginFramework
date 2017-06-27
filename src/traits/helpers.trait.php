@@ -1,4 +1,5 @@
 <?php
+
 	namespace PluginFramework;
 
 	trait Helpers {

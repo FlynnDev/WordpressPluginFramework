@@ -49,19 +49,19 @@ module.exports = function(grunt){
         usebanner: {
             main: {
                 options: {
-                    position: 'top',
+                    position: 'replace',
+                    replace: "\/\/banner",
                     banner:
-                    '<?php \n' +
                     '/**\n' +
                     ' * Package:  <%= pkg.title %>\n' +
                     ' * Version:  <%= pkg.version %>\n' +
                     ' * Date:     <%= grunt.template.today("dd-mm-yyyy") %>\n' +
                     ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author.name %> - <%= pkg.author.email %>\n' +
-                    ' */ \n ?>',
+                    ' */ \n \n',
                     linebreak: true
                 },
                 files : {
-                    src : ['build/*.php', 'load.php']
+                    src : ['build/*.php']
                 }
             }
         }
@@ -72,5 +72,5 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-banner');
 
-    grunt.registerTask('default', [ 'clean', 'copy:build', 'copy:loader', 'copy:readme', 'usebanner', 'copy:dist']);
+    grunt.registerTask('default', [ 'clean', 'copy:build', 'copy:readme', 'usebanner', 'copy:loader',  'copy:dist']);
 };

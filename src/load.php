@@ -1,4 +1,5 @@
 <?php
+//banner
 
 if(!class_exists("PluginFramework\Core")) {
 	require_once( './mustache.php' );
