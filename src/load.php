@@ -2,19 +2,19 @@
 //banner
 
 if(!class_exists("PluginFramework\Core")) {
-	require_once( './mustache.php' );
+	require_once( 'mustache.php' );
 
-	$folder = './traits';
+	$folder = 'traits';
 	foreach (scandir($folder) as $filename) {
 		$path = $folder . '/' . $filename;
 		if (is_file($path)) require_once ($path);
 	}
 
-	$folder = './classes';
+	$folder = 'classes';
 	foreach (scandir($folder) as $filename) {
 		$path = $folder . '/' . $filename;
 		if (is_file($path)) require_once ($path);
 	}
 
-	require_once( './core.class.php' );
+	require_once( 'core.class.php' );
 }
