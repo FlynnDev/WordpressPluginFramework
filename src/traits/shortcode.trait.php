@@ -23,7 +23,7 @@
 		}
 
 		public function getShortcodePrefix() {
-			return $this->shortcode_prefix == "" ? "" : $this->sterilize($$this->shortcode_prefix) . '_';
+			return $this->shortcode_prefix == "" ? "" : $this->sterilize($this->shortcode_prefix) . '_';
 		}
 
 		/**
