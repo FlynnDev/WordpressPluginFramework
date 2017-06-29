@@ -29,3 +29,6 @@ Todo
 - Meta Boxes
 - Shortcode atts
 - More Verbose Data Controls
+- Double Prefix in Page Url
+- Widgets
+- Pages in submenus
