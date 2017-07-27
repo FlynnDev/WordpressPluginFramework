@@ -10,7 +10,7 @@ abstract class Core{
 	function init($name, $ver, $file) {
 		$this->setPrefix($name);
 		$this->setShortcodePrefix($this->getPrefix());
-		$this->setMetaBoxPrefix($this->getPrefix());
+		// $this->setMetaBoxPrefix($this->getPrefix());
 		$this->setVersion($ver);
 		$this->setRoot($file);
 
