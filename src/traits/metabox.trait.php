@@ -64,6 +64,13 @@ trait MetaBox {
 		foreach($names as $name => $func) $this->addMetaBox($name, $func);
 	}
 
+	public function canSaveMetaBox($type, $name, $id, $post) {
+		if( wp_is_post_autosave( $id ) || wp_is_post_revision( $id ) ) return false;
+		if($post->type != $type) return false;
+		if( !current_user_can( 'edit_'.$type, $id ) ) return false;
+		return $this->check_nonce($name);
+	}
+
 	/**
 	 * Initializes MetaBoxes
 	 */
@@ -88,10 +95,14 @@ trait MetaBox {
 				[ &$this, $method ],
 				$post_type,
 				'normal',
-				'high'
+				'default'
 			);
 
 		}
+
+		$metabox_save_methods = preg_grep('/^(.+_)?metabox_save_/', get_class_methods($this));
+
+		foreach($metabox_save_methods as $method) { add_action( preg_replace( '/^(.+_)?metabox_save_/', '', $method ), [ &$this, $method ] ); }
 
 	}
 
