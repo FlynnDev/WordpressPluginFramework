@@ -4,6 +4,8 @@ namespace PluginFramework\V_1_1;
  * Trait MetaBox
  * @package PluginFramework\V_1_1
  *
+ * This has not been tested.
+ *
  * To add a metabox:
  *
  * A method must exist at "metabox_{name}" or "{post_type}_metabox_{name}"
