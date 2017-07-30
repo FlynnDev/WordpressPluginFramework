@@ -1,7 +1,7 @@
 <?php
 /**
  * Package:  WordPress Plugin Framework
- * Version:  1.1.112
+ * Version:  1.1.113
  * Date:     29-07-2017
  * Copyright 2017 Mike Flynn - mflynn@flynndev.us
  */ 
@@ -13,6 +13,9 @@ namespace PluginFramework\V_1_1;
 // Attempt to tell server to allow url fopen
 ini_set("allow_url_fopen", 1);
 
+require_once("funcs/check_version.func.php");
+require_once("funcs/register.func.php");
+
 if(! function_exists("plugin_core_error_admin_notice")) {
 
 	function plugin_core_error_admin_notice() {
@@ -22,13 +25,6 @@ if(! function_exists("plugin_core_error_admin_notice")) {
 		printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
 	}
 
-}
-
-if(! function_exists("plugin_framework_register")) {
-	function plugin_framework_register($name, $file){
-		if(empty($GLOBALS['plugin_framework_plugins'])) $GLOBALS['plugin_framework_plugins'] = [];
-		$GLOBALS['plugin_framework_plugins'][$name] = $file;
-	}
 }
 
 if( plugin_framework_check_version() == false ) {
