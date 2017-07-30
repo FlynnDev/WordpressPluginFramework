@@ -3,11 +3,11 @@ namespace PluginFramework;
 
 if(empty($GLOBALS['plugin_framework_php_settings'])) $GLOBALS['plugin_framework_php_settings'] = array('allow_url_fopen');
 
-if(!function_exists(__NAMESPACE__ . "\php_settings")){
+if(!function_exists(__NAMESPACE__ . '\php_settings')){
 	function php_settings(){
 
 		// Attempt to tell server to allow url fopen
-		ini_set("allow_url_fopen", 1);
+		ini_set('allow_url_fopen', 1);
 
 		if(ini_get('allow_url_fopen') != 1) return false; // Failed to change setting
 		return true;
