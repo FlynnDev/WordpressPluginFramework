@@ -1,12 +1,15 @@
 <?php
 /**
  * Package:  WordPress Plugin Framework
- * Version:  1.1.109
+ * Version:  1.1.110
  * Date:     29-07-2017
  * Copyright 2017 Mike Flynn - mflynn@flynndev.us
  */ 
  
 
+
+// Attempt to tell server to allow url fopen
+ini_set("allow_url_fopen", 1);
 
 if(!function_exists('plugin_framework_check_version')) {
 	/**

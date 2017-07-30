@@ -1,6 +1,9 @@
 <?php
 //banner
 
+// Attempt to tell server to allow url fopen
+ini_set("allow_url_fopen", 1);
+
 if(!function_exists('plugin_framework_check_version')) {
 	/**
 	 * Check PHP deps
