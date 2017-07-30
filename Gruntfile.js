@@ -4,7 +4,11 @@ module.exports = function(grunt){
     let v = package.version;
     let vs = v.split('.');
 
-    let apply_version = function(content){ return content.replace(/PluginFramework/g, `PluginFramework\\V_${vs[0]}_${vs[1]}`) };
+    let apply_version = function(content){
+        return content
+            .replace(/PluginFramework/g, `PluginFramework\\V_${vs[0]}_${vs[1]}`)
+            .replace(/plugin_framework_/g, `plugin_framework_v_${vs[0]}_${vs[1]}_`);
+    };
 
     grunt.initConfig({
         pkg: package,
