@@ -106,8 +106,7 @@ class ShortCode {
 
 	public function __construct($slug) {
 		$this->slug = $slug;
-		$loaded = $this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), [] );
-		$this->atts = new Attributes($loaded);
+		$this->atts = new Attributes();
 		$this->attributes = new Attributes();
 	}
 
@@ -155,6 +154,7 @@ class ShortCode {
 		$this->prefix   = $this->plugin->shortcode_prefix;
 		$this->function = $closure;
 		$this->name     = $this->pre($this->slug);
+		$this->atts->import($this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), [] ));
 
 		$this->callable = $this->function;
 
@@ -176,6 +176,7 @@ class ShortCode {
 		$this->prefix   = $this->plugin->shortcode_prefix;
 		$this->method   = $method;
 		$this->name     = $this->pre($this->slug);
+		$this->atts->import($this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), [] ));
 
 		$this->callable = [&$this->plugin, $this->method];
 
