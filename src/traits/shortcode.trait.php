@@ -46,7 +46,7 @@
 			// Method method
 			foreach($shortcode_methods as $method) {
 				$this   ->sc(ShortCode::_slug($method))
-				        ->init_method($this, $method)
+				        ->init_method($parent, $method)
 				        ->metadata();
 			}
 
