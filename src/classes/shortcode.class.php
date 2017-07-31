@@ -85,12 +85,12 @@ class ShortCode {
 	 * @return Shortcode Chainable
 	 */
 	public function &init_closure(&$plugin, &$closure) {
-		$this->plugin = &$plugin;
-		$this->prefix = &$this->plugin->shortcode_prefix;
-		$this->function = &$closure;
-		$this->name = $this->pre($this->slug);
+		$this->plugin   = $plugin;
+		$this->prefix   = $this->plugin->shortcode_prefix;
+		$this->function = $closure;
+		$this->name     = $this->pre($this->slug);
 
-		$this->callable =& $this->function;
+		$this->callable = $this->function;
 
 		return $this;
 	}
@@ -106,10 +106,10 @@ class ShortCode {
 
 		if(!$method) $method = "shortcode_{$this->slug}";
 
-		$this->plugin &= $plugin;
-		$this->prefix &= $this->plugin->shortcode_prefix;
-		$this->method = $method;
-		$this->name = $this->pre($this->slug);
+		$this->plugin   = $plugin;
+		$this->prefix   = $this->plugin->shortcode_prefix;
+		$this->method   = $method;
+		$this->name     = $this->pre($this->slug);
 
 		$this->callable = [&$this->plugin, $this->method];
 
