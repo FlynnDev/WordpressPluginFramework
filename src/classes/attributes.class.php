@@ -35,6 +35,7 @@ class Attributes {
 		return $this;
 	}
 	public function &add($slug, $default = false, $name = false, $tip = false, $type = 'text', $options = [] ){
-		return $this->atts[$slug] = new Attribute($slug, $default, $name, $tip, $type, $options);
+		$this->atts[$slug] = new Attribute($slug, $default, $name, $tip, $type, $options);
+		return $this->atts[$slug];
 	}
 }

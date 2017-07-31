@@ -15,7 +15,7 @@ class Options {
 		else if($data instanceof Option){
 			$this->opts[$data->option] = $data;
 		}
-		else if(is_array($data[0])){
+		else if(!empty($data) && is_array($data[0])){
 			foreach($this->opts as $k => $o){
 				$this->add($o['option'], $o['name']);
 			}
