@@ -37,18 +37,72 @@ class Attributes {
 	}
 }
 
+class Option {
+	public $option;
+	public $name;
+
+	public function __construct($option, $name) {
+		$this->option = $option;
+		$this->name = $name;
+	}
+
+	public function view($selected){
+		$v = ['selected' => false, 'option' => $o->option, 'name' => $o->name];
+		if($selected == $o->option) $v['selected'] = true;
+		return $v;
+	}
+
+}
+
+class Options {
+	public $opts;
+	public function __construct($data) {
+		$this->import($data);
+	}
+	public function &import($data){
+		if($data instanceof Options){
+			$this->opts = $data->opts;
+		}
+		else if($data instanceof Option){
+			$this->opts[$data->option] = $data;
+		}
+		else if(is_array($data[0])){
+			foreach($this->opts as $k => $o){
+				$this->add($o['option'], $o['name']);
+			}
+		}
+		return $this;
+
+	}
+
+	public function add($option, $name){
+		$this->opts[$option] = new Option($option, $name);
+	}
+	public function view($selected){
+		$v = [];
+		foreach($opts as $k => $o){
+			$v[$k] = $o->view($selected);
+		}
+		return $v;
+	}
+}
+
 class Attribute {
 	public $slug;
 	public $name;
 	public $default;
 	public $tip;
 	public $current;
+	public $type;
+	public $options;
 
-	public function __construct($slug, $default = false, $name = false, $tip = false) {
+	public function __construct($slug, $default = false, $name = false, $tip = false, $type = 'text', $options = [] ) {
 		$this->slug  = $slug;
 		$this->default = $default ?: "";
 		$this->name = $name ?: ucwords(str_replace('_', ' ',$slug));
 		$this->tip = $tip ?: "";
+		$this->options = new Options($options);
+		$this->type = $type;
 	}
 
 	public function &set($value){
