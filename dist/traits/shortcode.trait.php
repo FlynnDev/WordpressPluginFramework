@@ -52,13 +52,16 @@
 		}
 
 		public function &newOption($option, $name){
-			return new Option($option, $name);
+			$o = new Option($option, $name);
+			return $o;
 		}
 		public function &newOptions($data = []){
-			return new Options($data);
+			$o = new Options($data);
+			return $o;
 		}
 		public function &newAttributes($data = []){
-			return new Attributes($data);
+			$a = new Attributes($data);
+			return $a;
 		}
 
 	}
