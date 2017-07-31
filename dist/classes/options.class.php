@@ -24,8 +24,9 @@ class Options {
 
 	}
 
-	public function add($option, $name){
+	public function &add($option, $name){
 		$this->opts[$option] = new Option($option, $name);
+		return $this;
 	}
 	public function view($selected){
 		$v = [];
