@@ -53,21 +53,25 @@ class ShortCode {
 		if(!empty($this->atts) && !$overwrite) return $this;
 		$this->atts = $atts;
 		$this->attributes = $this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), $this->atts );
+		return $this;
 	}
 
 	public function &setTitle($title, $overwrite = true) {
 		if(!empty($this->title) && !$overwrite) return $this;
 		$this->title = $title;
+		return $this;
 	}
 
 	public function &setDescription($description, $overwrite = true) {
 		if(!empty($this->description) && !$overwrite) return $this;
 		$this->description = $description;
+		return $this;
 	}
 
 	public function &setCategory($category, $overwrite = true) {
 		if(!empty($this->category) && !$overwrite) return $this;
 		$this->category = $category;
+		return $this;
 	}
 
 	public function &metadata($title = false, $attributes = false, $description = '', $category = 'Content'){
