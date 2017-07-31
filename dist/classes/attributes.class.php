@@ -3,10 +3,11 @@ namespace PluginFramework\V_1_1;
 
 require_once('attribute.class.php');
 
-class Attributes {
-	public $atts = [];
+class Attributes implements \Iterator {
+	use Iterator;
 
 	public function __construct($data = []) {
+		$this->position = 0;
 		$this->import($data);
 	}
 
@@ -17,8 +18,8 @@ class Attributes {
 
 		}
 		else{
-			foreach($this->atts as $att) {
-				if(!isset($this->atts[$att->slug])) $this->atts[$att->slug] = $att;
+			foreach($data as $att) {
+				if(!isset($this->data[$att->slug])) $this->data[$att->slug] = $att;
 				else $this->set($att->slug, $att->get());
 			}
 		}
@@ -26,18 +27,18 @@ class Attributes {
 	}
 
 	public function &get($slug) {
-		if(!isset($this->atts[$slug])) $this->atts[$slug] = new Attribute($slug);
-		return $this->atts[$slug];
+		if(!isset($this->data[$slug])) $this->data[$slug] = new Attribute($slug);
+		return $this->data[$slug];
 	}
 
 	public function &set($slug, $value){
-		if(!isset($this->atts[$slug])) $this->atts[$slug] = new Attribute($slug);
-		$this->atts[$slug]->set($value);
+		if(!isset($this->data[$slug])) $this->data[$slug] = new Attribute($slug);
+		$this->data[$slug]->set($value);
 		return $this;
 	}
 
 	public function &add($slug, $default = false, $name = false, $tip = false, $type = 'text', $options = [] ){
-		$this->atts[$slug] = new Attribute($slug, $default, $name, $tip, $type, $options);
+		$this->data[$slug] = new Attribute($slug, $default, $name, $tip, $type, $options);
 		return $this;
 	}
 }
