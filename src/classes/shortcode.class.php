@@ -1,11 +1,70 @@
 <?php
 namespace PluginFramework;
 
+class Attributes {
+	public $atts = [];
+
+	public function __construct($data = []) {
+		$this->import($data);
+	}
+
+	public function &import($data) {
+		if(!$data instanceof Attributes){
+			// Old syntax
+			foreach($data as $slug => $value) $this->set($slug, $value);
+
+		}
+		else{
+			foreach($this->atts as $att) {
+				if(!isset($this->atts[$att->slug])) $this->atts[$att->slug] = $att;
+				else $this->set($att->slug, $att->get());
+			}
+		}
+		return $this;
+	}
+
+	public function &get($slug) {
+		if(!isset($this->atts[$slug])) $this->atts[$slug] = new Attribute($slug);
+		return $this->atts[$slug];
+	}
+	public function &set($slug, $value){
+		if(!isset($this->atts[$slug])) $this->atts[$slug] = new Attribute($slug);
+		$this->atts[$slug]->set($value);
+		return $this;
+	}
+	public function &add($slug, $default = false, $name = false, $tip = false){
+		return $this->atts[$slug] = new Attribute($slug, $default, $name, $tip);
+	}
+}
+
+class Attribute {
+	public $slug;
+	public $name;
+	public $default;
+	public $tip;
+	public $current;
+
+	public function __construct($slug, $default = false, $name = false, $tip = false) {
+		$this->slug  = $slug;
+		$this->default = $default ?: "";
+		$this->name = $name ?: ucwords(str_replace('_', ' ',$slug));
+		$this->tip = $tip ?: "";
+	}
+
+	public function &set($value){
+		$this->current = $value;
+		return $this;
+	}
+
+	public function get(){
+		return $this->current ?: $this->default;
+	}
+}
 
 class ShortCode {
 	public $prefix = "";
 	public $atts = [];
-	public $attributes = [];
+	public $attributes;
 	public $title = "";
 	public $description = "";
 	public $name = "";
@@ -47,12 +106,15 @@ class ShortCode {
 
 	public function __construct($slug) {
 		$this->slug = $slug;
+		$loaded = $this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), [] );
+		$this->atts = new Attributes($loaded);
+		$this->attributes = new Attributes();
 	}
 
-	public function &setAttributes($atts = [], $overwrite = true){
-		if(!empty($this->atts) && !$overwrite) return $this;
-		$this->atts = $atts;
-		$this->attributes = $this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), $this->atts );
+	public function &setAttributes($atts){
+		$this->attributes
+			->import($atts)
+			->import($this->atts);
 		return $this;
 	}
 
@@ -75,7 +137,7 @@ class ShortCode {
 	}
 
 	public function &metadata($title = false, $attributes = false, $description = '', $category = 'Content'){
-		$this   ->setAttributes($attributes ?: $this->load('attributes', []), false )
+		$this   ->setAttributes($attributes ?: $this->load('attributes', [] ))
 				->setTitle($title ?: $this->load('title', $this->plugin->getName() . ': ' . ucwords(str_replace('_', ' ', $this->slug)) ))
 				->setDescription($description != "" ? $description: $this->load('description', $description))
 				->setCategory( $category != 'Content' ? $category : $this->load('category', $category));
