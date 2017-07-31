@@ -83,4 +83,38 @@
 			return "<input type='hidden' id='_{$n}' name='_{$n}' value='{$nonce}' />";
 		}
 
+		public $text_domain = "plugin-framework";
+
+		public function setTextDomain($domain) {
+			$this->text_domain = $domain;
+		}
+
+		public function __($str, $escape = false) {
+			return $escape ? esc_html__($str, $this->text_domain) : __($str, $this->text_domain);
+		}
+
+		public function _e($str, $escape = false) {
+			return $escape ? esc_html_e($str, $this->text_domain) : _e($str, $this->text_domain);
+		}
+
+		public function _x($str, $context){
+			return _x($str, $context, $this->text_domain);
+		}
+
+		public function _ex($str, $context) {
+			return _ex($str, $context, $this->text_domain);
+		}
+
+		protected function build_script_context($arr) {
+			$context = [];
+
+			foreach($arr as $i) {
+				if(is_array($i)) $context[$i[0]] = $this->_x($i[0], $i[1]);
+				else $context[$i] = $this->__($i);
+			}
+
+			return $context;
+		}
+
+
 	}

@@ -1,7 +1,7 @@
 <?php
 /**
  * Package:  WordPress Plugin Framework
- * Version:  1.1.122
+ * Version:  1.1.123
  * Date:     30-07-2017
  * Copyright 2017 Mike Flynn - mflynn@flynndev.us
  */ 
@@ -33,6 +33,14 @@ else {
 			require_once( 'mustache.php' );
 
 			$folder = dirname( __FILE__ ) . '/' . 'traits';
+			foreach ( scandir( $folder ) as $filename ) {
+				$path = $folder . '/' . $filename;
+				if ( is_file( $path ) ) {
+					require_once( $path );
+				}
+			}
+
+			$folder = dirname( __FILE__ ) . '/' . 'classes';
 			foreach ( scandir( $folder ) as $filename ) {
 				$path = $folder . '/' . $filename;
 				if ( is_file( $path ) ) {

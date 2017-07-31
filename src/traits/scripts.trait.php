@@ -24,6 +24,7 @@
 		 * @param string $name Script Name
 		 * @param string $file File Name
 		 * @param string[] $deps Dependancies
+		 * @param string[]|array[] $localize Localization A list containing strings ( or [string, context]) to be run through the translation engine
 		 */
 		public function addScript($name, $file, $deps = []){
 			$this->scripts[] = [$name, $file, $deps];
@@ -46,33 +47,36 @@
 		 * @param string $name Script Name
 		 * @param string $file File Name
 		 * @param array $deps Dependancies
+		 * @param string[]|array[] $localize Localization A list containing strings ( or [string, context]) to be run through the translation engine
 		 */
-		public function addAdminScript($name, $file, $deps = []){
-			$this->admin_scripts[] = [$name, $file, $deps];
+		public function addAdminScript($name, $file, $deps = [], $localize = [] ){
+			$this->admin_scripts[] = [$name, $file, $deps, $localize];
 		}
 
 		public function scripts_hook_init() {
-			foreach($this->scripts as list($name, $file, $deps)) {
+			foreach($this->scripts as list($name, $file, $deps, $localize)) {
 				wp_register_script( $this->pre($name), $this->scriptUrl($file), $deps, $this->getVersion(), true );
 			}
 		}
 
 		public function scripts_hook_admin_init(){
-			foreach($this->admin_scripts as list($name, $file, $deps)) {
+			foreach($this->admin_scripts as list($name, $file, $deps, $localize)) {
 				wp_register_script( $this->pre('admin', $name), $this->scriptUrl($file), $deps, $this->getVersion(), true );
 			}
 		}
 
 
 		public function scripts_hook_wp_enqueue_scripts() {
-			foreach ( $this->scripts as list( $name, $file, $deps ) ) {
+			foreach ( $this->scripts as list( $name, $file, $deps, $localize ) ) {
 				wp_enqueue_script( $this->pre( $name ) );
+				wp_localize_script( $this->pre($name), 'pf_context', $this->build_script_context($localize) );
 			}
 		}
 
 		public function scripts_hook_admin_enqueue_scripts() {
-			foreach ( $this->admin_scripts as list( $name, $file, $deps ) ) {
+			foreach ( $this->admin_scripts as list( $name, $file, $deps, $localize ) ) {
 				wp_enqueue_script( $this->pre( 'admin', $name ) );
+				wp_localize_script( $this->pre( 'admin', $name), 'pf_context', $this->build_script_context($localize) );
 			}
 		}
 	}
