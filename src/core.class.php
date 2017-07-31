@@ -7,7 +7,10 @@ abstract class Core{
 
 	use PluginInfo, Helpers, Hooks, Errors, View, Data, Shortcodes, Security, Styles, Scripts, Pages, Filters;
 
+	public $_t;
+
 	function init($name, $ver, $file) {
+		$this->_t = $this;
 		$this->setPrefix($name);
 		$this->setShortcodePrefix($this->getPrefix());
 		// $this->setMetaBoxPrefix($this->getPrefix());
