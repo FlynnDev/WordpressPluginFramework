@@ -57,5 +57,8 @@
 		public function &newOptions($data = []){
 			return new Options($data);
 		}
+		public function &newAttributes($data = []){
+			return new Attributes($data);
+		}
 
 	}
