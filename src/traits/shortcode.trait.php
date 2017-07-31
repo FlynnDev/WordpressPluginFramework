@@ -31,9 +31,8 @@
 		}
 
 		public function &sc($slug) {
-			$shortcode = new ShortCode($slug);
-			if(!isset($this->shortcodes[$slug])) $this->shortcodes[$slug] =& $shortcode;
-			return $shortcode;
+			if(!isset($this->shortcodes[$slug])) $this->shortcodes[$slug] = new ShortCode($slug);
+			return $this->shortcodes[$slug];
 		}
 
 		/**
