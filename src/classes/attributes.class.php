@@ -29,11 +29,13 @@ class Attributes {
 		if(!isset($this->atts[$slug])) $this->atts[$slug] = new Attribute($slug);
 		return $this->atts[$slug];
 	}
+
 	public function &set($slug, $value){
 		if(!isset($this->atts[$slug])) $this->atts[$slug] = new Attribute($slug);
 		$this->atts[$slug]->set($value);
 		return $this;
 	}
+
 	public function &add($slug, $default = false, $name = false, $tip = false, $type = 'text', $options = [] ){
 		$this->atts[$slug] = new Attribute($slug, $default, $name, $tip, $type, $options);
 		return $this->atts[$slug];

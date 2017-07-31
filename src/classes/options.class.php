@@ -4,7 +4,7 @@ namespace PluginFramework;
 require_once('option.class.php');
 
 class Options {
-	public $opts;
+	public $opts = [];
 	public function __construct($data) {
 		$this->import($data);
 	}

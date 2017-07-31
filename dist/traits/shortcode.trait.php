@@ -51,4 +51,11 @@
 
 		}
 
+		public function &newOption($option, $name){
+			return new Option($option, $name);
+		}
+		public function &newOptions($data = []){
+			return new Options($data);
+		}
+
 	}
