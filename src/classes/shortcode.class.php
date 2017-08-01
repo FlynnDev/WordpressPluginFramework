@@ -104,7 +104,7 @@ class Single {
 		$this->atts->import($this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), [] ));
 
 		$this->callable = $this->function;
-
+		$this->launch();
 		return $this;
 	}
 
@@ -126,7 +126,7 @@ class Single {
 		$this->atts->import($this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), [] ));
 
 		$this->callable = [&$this->plugin, $this->method];
-
+		$this->launch();
 		return $this;
 	}
 
