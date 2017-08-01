@@ -1,12 +1,15 @@
 <?php
 namespace PluginFramework\V_1_2\ShortCodes;
-use PluginFramework\V_1_2\Attributes\Container;
+use PluginFramework\V_1_2\Attributes\Container as ShortCodes;
 
 require_once('attributes.class.php');
 
 class Single {
 	public $prefix = "";
 	public $atts = [];
+	/**
+	 * @var ShortCodes
+	 */
 	public $attributes;
 	public $title = "";
 	public $description = "";
@@ -49,8 +52,8 @@ class Single {
 
 	public function __construct($slug) {
 		$this->slug = $slug;
-		$this->atts = new Container();
-		$this->attributes = new Container();
+		$this->atts = new ShortCodes();
+		$this->attributes = new ShortCodes();
 	}
 
 	public function setAttributes($atts){
