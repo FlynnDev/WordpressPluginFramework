@@ -85,4 +85,10 @@ class Container implements Iterator {
 		$this->data[$slug] = new Single($slug, $default, $name, $tip, $type, $options);
 		return $this;
 	}
+
+	public function view() {
+		$view = [];
+		foreach($this->data as $a) $view[] = $a;
+		return $view;
+	}
 }

@@ -34,4 +34,19 @@ class Single {
 	public function __toString() {
 		return $this->get();
 	}
+
+	public function view(){
+		return [
+			'name'          => $this->slug,
+			'title'         => $this->name,
+			'is_select'     => $this->type == 'select',
+			'is_checkbox'   => $this->type == 'check',
+			'checked'       => $this->type == 'check' && $this->get(),
+			'is_text'       => $this->type == 'text',
+			'options'       => $this->options->view($this->get()),
+			'value'         => $this->get(),
+			'tip'           => $this->tip
+		];
+	}
+
 }
