@@ -1,5 +1,6 @@
 <?php
-namespace PluginFramework\V_1_1;
+namespace PluginFramework\V_1_1\Attributes;
+use PluginFramework\V_1_1\Options\Options;
 
 require_once('options.class.php');
 

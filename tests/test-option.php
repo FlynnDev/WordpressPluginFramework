@@ -1,5 +1,5 @@
 <?php
-namespace PluginFramework;
+namespace PluginFramework\Options;
 use \PHPUnit\Framework\TestCase;
 
 class OptionTest extends TestCase

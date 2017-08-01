@@ -1,5 +1,5 @@
 <?php
-namespace PluginFramework;
+namespace PluginFramework\Options;
 
 class Option {
 	public $value;

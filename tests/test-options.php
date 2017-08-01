@@ -1,12 +1,12 @@
 <?php
-namespace PluginFramework;
+namespace PluginFramework\Options;
 use \PHPUnit\Framework\TestCase;
 
 class OptionsTest extends TestCase
 {
 	public function test_defaults() {
 		$options = new Options();
-		$this->assertInstanceOf('\PluginFramework\Options', $options);
+		$this->assertInstanceOf('\PluginFramework\Options\Options', $options);
 		$this->assertEquals(0, $options->count());
 	}
 

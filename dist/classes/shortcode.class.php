@@ -1,5 +1,6 @@
 <?php
-namespace PluginFramework\V_1_1;
+namespace PluginFramework\V_1_1\ShortCodes;
+use PluginFramework\V_1_1\Attributes\Attributes;
 
 require_once('attributes.class.php');
 
@@ -15,7 +16,7 @@ class ShortCode {
 	public $category = "";
 	public $callable;
 	/**
-	 * @var Core
+	 * @var \PluginFramework\V_1_1\Core
 	 */
 	private $plugin;
 	/**
@@ -87,7 +88,7 @@ class ShortCode {
 	/**
 	 * Initalize ShortCode using Callable Function
 	 *
-	 * @param $plugin Core
+	 * @param $plugin \PluginFramework\V_1_1\Core
 	 * @param $closure callable
 	 * @return Shortcode Chainable
 	 */
@@ -106,7 +107,7 @@ class ShortCode {
 	/**
 	 * Initalize ShortCode using Method
 	 *
-	 * @param $plugin Core
+	 * @param $plugin \PluginFramework\V_1_1\Core
 	 * @param $method string|boolean
 	 * @return Shortcode Chainable
 	 */

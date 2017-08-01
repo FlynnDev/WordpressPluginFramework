@@ -1,9 +1,9 @@
 <?php
 namespace PluginFramework\V_1_1;
 
-trait Iterator {
+trait DataIterator {
 	private $position = 0;
-	private $data = [];
+	protected $data = [];
 	public function start()   { $this->position = 0; }
 	public function rewind()  { $this->position = 0; }
 	public function current() { return $this->data[$this->position]; }

@@ -1,5 +1,5 @@
 <?php
-namespace PluginFramework;
+namespace PluginFramework\Attributes;
 use \PHPUnit\Framework\TestCase;
 
 class AttributeTest extends TestCase
@@ -10,7 +10,7 @@ class AttributeTest extends TestCase
 		$this->assertEquals('', $attribute->default);
 		$this->assertEquals('Test', $attribute->name);
 		$this->assertEquals('', $attribute->tip);
-		$this->assertInstanceOf('\PluginFramework\Options', $attribute->options);
+		$this->assertInstanceOf('\PluginFramework\Options\Options', $attribute->options);
 		$this->assertCount(0, $attribute->options);
 		$this->assertEquals('text', $attribute->type);
 		$this->assertEquals('', $attribute->get());

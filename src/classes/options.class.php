@@ -1,12 +1,16 @@
 <?php
-namespace PluginFramework;
+namespace PluginFramework\Options;
+use PluginFramework\DataIterator;
 
 require_once('option.class.php');
 
 class Options implements \Iterator {
-	use Iterator;
+	use DataIterator;
 
-	//private $data = [];
+	/**
+	 * @var Options[]
+	 */
+	protected $data = [];
 
 	public function __construct($data = []) {
 		$this->start();

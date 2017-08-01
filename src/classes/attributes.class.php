@@ -1,21 +1,32 @@
 <?php
-namespace PluginFramework;
+namespace PluginFramework\Attributes;
+use PluginFramework\DataIterator as AttributesIterator;
+use Iterator;
 
 require_once('attribute.class.php');
 
-class Attributes implements \Iterator {
-	use Iterator;
+class Attributes implements Iterator {
+	use AttributesIterator;
+
+	/**
+	 * @var Attribute[]
+	 */
+	protected $data = [];
 
 	public function __construct($data = []) {
 		$this->start();
 		$this->import($data);
 	}
 
-	public function &import($data) {
+	/**
+	 * @param Attributes|array $data
+	 *
+	 * @return $this
+	 */
+	public function import($data) {
 		if(!$data instanceof Attributes){
 			// Old syntax
 			foreach($data as $slug => $value) $this->set($slug, $value);
-
 		}
 		else{
 			foreach($data as $att) {
@@ -29,8 +40,6 @@ class Attributes implements \Iterator {
 	public function save() {
 		// Saves current state
 	}
-
-
 
 	public function get($slug) {
 		if(!isset($this->data[$slug])) $this->data[$slug] = new Attribute($slug);
