@@ -30,6 +30,11 @@
 			return shortcode_atts( $this->shortcodes[$shortcode]['attributes'] ?: [], $a, $this->pre($shortcode));
 		}
 
+		/**
+		 * @param $slug string
+		 *
+		 * @return ShortCode
+		 */
 		public function sc($slug) {
 			if(!isset($this->shortcodes[$slug])) $this->shortcodes[$slug] = new ShortCode($slug);
 			return $this->shortcodes[$slug];
