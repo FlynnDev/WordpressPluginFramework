@@ -26,6 +26,12 @@ class Attributes implements \Iterator {
 		return $this;
 	}
 
+	public function save() {
+		// Saves current state
+	}
+
+
+
 	public function &get($slug) {
 		if(!isset($this->data[$slug])) $this->data[$slug] = new Attribute($slug);
 		return $this->data[$slug];
