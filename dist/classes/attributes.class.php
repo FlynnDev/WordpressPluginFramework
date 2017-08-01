@@ -5,11 +5,11 @@ use Iterator;
 
 require_once('attribute.class.php');
 
-class Attributes implements Iterator {
+class Container implements Iterator {
 	use AttributesIterator;
 
 	/**
-	 * @var Attribute[]
+	 * @var Single[]
 	 */
 	protected $data = [];
 
@@ -19,12 +19,12 @@ class Attributes implements Iterator {
 	}
 
 	/**
-	 * @param Attributes|array $data
+	 * @param Container|array $data
 	 *
 	 * @return $this
 	 */
 	public function import($data) {
-		if(!$data instanceof Attributes){
+		if(! $data instanceof Container){
 			// Old syntax
 			foreach($data as $slug => $value) $this->set($slug, $value);
 		}
@@ -42,18 +42,18 @@ class Attributes implements Iterator {
 	}
 
 	public function get($slug) {
-		if(!isset($this->data[$slug])) $this->data[$slug] = new Attribute($slug);
+		if(!isset($this->data[$slug])) $this->data[$slug] = new Single($slug);
 		return $this->data[$slug];
 	}
 
 	public function set($slug, $value){
-		if(!isset($this->data[$slug])) $this->data[$slug] = new Attribute($slug);
+		if(!isset($this->data[$slug])) $this->data[$slug] = new Single($slug);
 		$this->data[$slug]->set($value);
 		return $this;
 	}
 
 	public function add($slug, $default = false, $name = false, $tip = false, $type = 'text', $options = [] ){
-		$this->data[$slug] = new Attribute($slug, $default, $name, $tip, $type, $options);
+		$this->data[$slug] = new Single($slug, $default, $name, $tip, $type, $options);
 		return $this;
 	}
 }

@@ -1,12 +1,12 @@
 <?php
 	namespace PluginFramework\V_1_1;
-	use PluginFramework\V_1_1\ShortCodes\ShortCodes as ShortCodesObj;
+	use PluginFramework\V_1_1\ShortCodes\Container as ShortCodesObj;
 	trait Shortcodes {
 
 		public $shortcode_prefix = false;
 
 		/**
-		 * @var \PluginFramework\V_1_1\ShortCodes\ShortCodes
+		 * @var \PluginFramework\V_1_1\ShortCodes\Container
 		 */
 		public $shortcodes;
 

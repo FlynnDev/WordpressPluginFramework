@@ -5,7 +5,7 @@ use Iterator;
 
 require_once('attribute.class.php');
 
-class ShortCodes implements Iterator {
+class Container implements Iterator {
 	use ShortCodeIterator;
 
 	public function __construct($data = []) {
@@ -13,7 +13,7 @@ class ShortCodes implements Iterator {
 	}
 
 	public function get($slug) {
-		if(!isset($this->data[$slug])) $this->data[$slug] = new ShortCode($slug);
+		if(!isset($this->data[$slug])) $this->data[$slug] = new Single($slug);
 		return $this->data[$slug];
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 namespace PluginFramework\Options;
 
-class Option {
+class Single {
 	public $value;
 	public $label;
 

@@ -4,11 +4,11 @@ use PluginFramework\DataIterator;
 
 require_once('option.class.php');
 
-class Options implements \Iterator {
+class Container implements \Iterator {
 	use DataIterator;
 
 	/**
-	 * @var Options[]
+	 * @var Single[]
 	 */
 	protected $data = [];
 
@@ -18,13 +18,13 @@ class Options implements \Iterator {
 	}
 
 	public function import($data){
-		if($data instanceof Options){
+		if( $data instanceof Container){
 			//$this->data = $data->data;
 			foreach($data->export() as $o){
 				$this->data[$o->value] = $o;
 			}
 		}
-		else if($data instanceof Option){
+		else if( $data instanceof Single){
 			$this->data[$data->value] = $data;
 		}
 		else if(!empty($data) && is_array($data)){
@@ -44,7 +44,7 @@ class Options implements \Iterator {
 	}
 
 	public function add($value, $label){
-		$this->data[$value] = new Option($value, $label);
+		$this->data[$value] = new Single($value, $label);
 		return $this;
 	}
 

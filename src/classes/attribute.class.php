@@ -1,10 +1,10 @@
 <?php
 namespace PluginFramework\Attributes;
-use PluginFramework\Options\Options;
+use PluginFramework\Options\Container;
 
-require_once('options.class.php');
+require_once( 'options.class.php' );
 
-class Attribute {
+class Single {
 	public $slug;
 	public $name;
 	public $default;
@@ -18,7 +18,7 @@ class Attribute {
 		$this->default = $default ?: "";
 		$this->name = $name ?: ucwords(str_replace('_', ' ',$slug));
 		$this->tip = $tip ?: "";
-		$this->options = new Options($options);
+		$this->options = new Container($options);
 		$this->type = $type;
 	}
 

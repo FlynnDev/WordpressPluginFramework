@@ -1,10 +1,10 @@
 <?php
 namespace PluginFramework\V_1_1\ShortCodes;
-use PluginFramework\V_1_1\Attributes\Attributes;
+use PluginFramework\V_1_1\Attributes\Container;
 
 require_once('attributes.class.php');
 
-class ShortCode {
+class Single {
 	public $prefix = "";
 	public $atts = [];
 	public $attributes;
@@ -49,8 +49,8 @@ class ShortCode {
 
 	public function __construct($slug) {
 		$this->slug = $slug;
-		$this->atts = new Attributes();
-		$this->attributes = new Attributes();
+		$this->atts = new Container();
+		$this->attributes = new Container();
 	}
 
 	public function setAttributes($atts){
@@ -90,7 +90,8 @@ class ShortCode {
 	 *
 	 * @param $plugin \PluginFramework\V_1_1\Core
 	 * @param $closure callable
-	 * @return Shortcode Chainable
+	 *
+	 * @return Single Chainable
 	 */
 	public function init_closure(&$plugin, &$closure) {
 		$this->plugin   = $plugin;
@@ -109,7 +110,7 @@ class ShortCode {
 	 *
 	 * @param $plugin \PluginFramework\V_1_1\Core
 	 * @param $method string|boolean
-	 * @return Shortcode Chainable
+	 * @return Single Chainable
 	 */
 	public function init_method(&$plugin, $method = false) {
 
