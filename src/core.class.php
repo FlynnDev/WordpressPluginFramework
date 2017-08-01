@@ -20,7 +20,7 @@ abstract class Core {
 		$this->_t = $t;
 		$this->setPrefix($name);
 		$this->setShortcodePrefix($this->getPrefix());
-		// $this->setMetaBoxPrefix($this->getPrefix());
+		$this->setMetaBoxPrefix($this->getPrefix());
 		$this->setVersion($ver);
 		$this->setRoot($file);
 
@@ -30,8 +30,7 @@ abstract class Core {
 		$this->init_hooks();
 		$this->init_shortcodes();
 		$this->init_filters();
-
-		// $this->init_metaboxes();
+		$this->init_metaboxes();
 	}
 
 }

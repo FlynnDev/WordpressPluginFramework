@@ -72,7 +72,7 @@ trait MetaBox {
 		return $meta;
 	}
 
-	public function _metaboxes_hook_save_post($id, $post) {
+	public function _metaboxes_hook_save_post($id, $post = false) {
 		$post_type = $post->post_type;
 		foreach($this->metaboxes[$post_type] as $name) {
 			if($this->canSaveMetaBox($post_type, $name, $id, $post)) $this->saveMetaBoxData($id, $name, $post_type);
