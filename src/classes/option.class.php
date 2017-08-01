@@ -2,18 +2,20 @@
 namespace PluginFramework;
 
 class Option {
-	public $option;
-	public $name;
+	public $value;
+	public $label;
 
-	public function __construct($option, $name) {
-		$this->option = $option;
-		$this->name = $name;
+	public function __construct($value, $label = false) {
+		$this->value = $value;
+		$this->label = $label ?: $value;
 	}
 
 	public function view($selected){
-		$v = ['selected' => false, 'option' => $o->option, 'name' => $o->name];
-		if($selected == $o->option) $v['selected'] = true;
-		return $v;
+		return [
+			'selected' => $selected == $this->value,
+			'value' => $this->value,
+			'label' => $this->label
+		];
 	}
 
 }

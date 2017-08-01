@@ -10,4 +10,5 @@ trait Iterator {
 	public function key()     { return $this->position; }
 	public function next()    { ++$this->position; }
 	public function valid()   { return isset($this->data[$this->position]); }
+	public function count()   { return count($this->data); }
 }
