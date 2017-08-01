@@ -1,6 +1,11 @@
 <?php
 	namespace PluginFramework\V_1_1\ShortCodes;
 	use PluginFramework\V_1_1\ShortCodes\Container as ShortCodes;
+	use PluginFramework\V_1_1\Options\Container    as Options;
+	use PluginFramework\V_1_1\Options\Single       as Option;
+	use PluginFramework\V_1_1\Attributes\Container as Attributes;
+	use PluginFramework\V_1_1\Attributes\Single    as Attribute;
+
 	trait Core {
 
 		public $shortcode_prefix = false;
@@ -59,5 +64,6 @@
 		public function newOption($option, $name) { return new Option($option, $name); }
 		public function newOptions($data = [])    { return new Options($data); }
 		public function newAttributes($data = []) { return new Attributes($data); }
+		public function newAttribute($slug, $default = false, $name = false, $tip = false, $type = 'text', $options = []) { return new Attribute($slug, $default, $name, $tip, $type, $options); }
 
 	}
