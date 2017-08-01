@@ -1,8 +1,6 @@
 <?php
 namespace PluginFramework;
 
-
-
 class Option {
 	public $option;
 	public $name;

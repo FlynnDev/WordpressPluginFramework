@@ -27,7 +27,7 @@
 		}
 
 		protected function atts($shortcode, $a = []) {
-			return shortcode_atts( $this->shortcodes[$shortcode]['attributes'] ?: [], $a, $this->shortcode_pre($shortcode));
+			return shortcode_atts( $this->shortcodes[$shortcode]['attributes'] ?: [], $a, $this->pre($shortcode));
 		}
 
 		public function sc($slug) {
@@ -51,14 +51,8 @@
 
 		}
 
-		public function newOption($option, $name) {
-			return new Option($option, $name);;
-		}
-		public function newOptions($data = []){
-			return new Options($data);
-		}
-		public function newAttributes($data = []){
-			return new Attributes($data);
-		}
+		public function newOption($option, $name) { return new Option($option, $name); }
+		public function newOptions($data = [])    { return new Options($data); }
+		public function newAttributes($data = []) { return new Attributes($data); }
 
 	}
