@@ -11,7 +11,7 @@ class Options implements \Iterator {
 		$this->import($data);
 	}
 
-	public function &import($data){
+	public function import($data){
 		if($data instanceof Options){
 			$this->data = $data->data;
 		}
@@ -26,7 +26,7 @@ class Options implements \Iterator {
 		return $this;
 	}
 
-	public function &add($option, $name){
+	public function add($option, $name){
 		$this->data[$option] = new Option($option, $name);
 		return $this;
 	}

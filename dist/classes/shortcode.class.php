@@ -52,32 +52,32 @@ class ShortCode {
 		$this->attributes = new Attributes();
 	}
 
-	public function &setAttributes($atts){
+	public function setAttributes($atts){
 		$this->attributes
 			->import($atts)
 			->import($this->atts);
 		return $this;
 	}
 
-	public function &setTitle($title, $overwrite = true) {
+	public function setTitle($title, $overwrite = true) {
 		if(!empty($this->title) && !$overwrite) return $this;
 		$this->title = $title;
 		return $this;
 	}
 
-	public function &setDescription($description, $overwrite = true) {
+	public function setDescription($description, $overwrite = true) {
 		if(!empty($this->description) && !$overwrite) return $this;
 		$this->description = $description;
 		return $this;
 	}
 
-	public function &setCategory($category, $overwrite = true) {
+	public function setCategory($category, $overwrite = true) {
 		if(!empty($this->category) && !$overwrite) return $this;
 		$this->category = $category;
 		return $this;
 	}
 
-	public function &metadata($title = false, $attributes = false, $description = '', $category = 'Content'){
+	public function metadata($title = false, $attributes = false, $description = '', $category = 'Content'){
 		$this   ->setAttributes($attributes ?: $this->load('attributes', [] ))
 				->setTitle($title ?: $this->load('title', $this->plugin->getName() . ': ' . ucwords(str_replace('_', ' ', $this->slug)) ))
 				->setDescription($description != "" ? $description: $this->load('description', $description))
@@ -91,7 +91,7 @@ class ShortCode {
 	 * @param $closure callable
 	 * @return Shortcode Chainable
 	 */
-	public function &init_closure(&$plugin, &$closure) {
+	public function init_closure(&$plugin, &$closure) {
 		$this->plugin   = $plugin;
 		$this->prefix   = $this->plugin->shortcode_prefix;
 		$this->function = $closure;
@@ -110,7 +110,7 @@ class ShortCode {
 	 * @param $method string|boolean
 	 * @return Shortcode Chainable
 	 */
-	public function &init_method(&$plugin, $method = false) {
+	public function init_method(&$plugin, $method = false) {
 
 		if(!$method) $method = "shortcode_{$this->slug}";
 
@@ -125,7 +125,7 @@ class ShortCode {
 		return $this;
 	}
 
-	public function &launch(){
+	public function launch(){
 		add_shortcode($this->name, $this->callable);
 
 		if(function_exists('vc_map')) {

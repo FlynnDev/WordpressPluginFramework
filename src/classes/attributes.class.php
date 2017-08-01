@@ -32,18 +32,18 @@ class Attributes implements \Iterator {
 
 
 
-	public function &get($slug) {
+	public function get($slug) {
 		if(!isset($this->data[$slug])) $this->data[$slug] = new Attribute($slug);
 		return $this->data[$slug];
 	}
 
-	public function &set($slug, $value){
+	public function set($slug, $value){
 		if(!isset($this->data[$slug])) $this->data[$slug] = new Attribute($slug);
 		$this->data[$slug]->set($value);
 		return $this;
 	}
 
-	public function &add($slug, $default = false, $name = false, $tip = false, $type = 'text', $options = [] ){
+	public function add($slug, $default = false, $name = false, $tip = false, $type = 'text', $options = [] ){
 		$this->data[$slug] = new Attribute($slug, $default, $name, $tip, $type, $options);
 		return $this;
 	}

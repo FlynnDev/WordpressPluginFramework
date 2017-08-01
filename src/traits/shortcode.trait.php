@@ -51,17 +51,14 @@
 
 		}
 
-		public function &newOption($option, $name){
-			$o = new Option($option, $name);
-			return $o;
+		public function newOption($option, $name) {
+			return new Option($option, $name);;
 		}
-		public function &newOptions($data = []){
-			$o = new Options($data);
-			return $o;
+		public function newOptions($data = []){
+			return new Options($data);
 		}
-		public function &newAttributes($data = []){
-			$a = new Attributes($data);
-			return $a;
+		public function newAttributes($data = []){
+			return new Attributes($data);
 		}
 
 	}

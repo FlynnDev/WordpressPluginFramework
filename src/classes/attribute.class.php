@@ -21,7 +21,7 @@ class Attribute {
 		$this->type = $type;
 	}
 
-	public function &set($value){
+	public function set($value){
 		$this->current = $value;
 		return $this;
 	}
