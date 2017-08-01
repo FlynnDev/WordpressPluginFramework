@@ -88,7 +88,7 @@ class Container implements Iterator {
 
 	public function view() {
 		$view = [];
-		foreach($this->data as $a) $view[] = $a;
+		foreach($this->data as $a) $view[] = $a->view();
 		return $view;
 	}
 }
