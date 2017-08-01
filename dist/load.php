@@ -1,7 +1,7 @@
 <?php
 /**
  * Package:  WordPress Plugin Framework
- * Version:  1.2.2
+ * Version:  1.2.3
  * Date:     01-08-2017
  * Copyright 2017 Mike Flynn - mflynn@flynndev.us
  */ 
@@ -30,7 +30,7 @@ else {
 	else {
 
 		if ( ! class_exists( __NAMESPACE__ . "\Core" ) ) {
-			require_once( 'mustache.php' );
+			if( ! class_exists( 'Mustache_Engine' ) ) require_once( 'mustache.php' );
 
 			$folder = dirname( __FILE__ ) . '/' . 'traits';
 			foreach ( scandir( $folder ) as $filename ) {

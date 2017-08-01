@@ -23,7 +23,7 @@ else {
 	else {
 
 		if ( ! class_exists( __NAMESPACE__ . "\Core" ) ) {
-			require_once( 'mustache.php' );
+			if( ! class_exists( 'Mustache_Engine' ) ) require_once( 'mustache.php' );
 
 			$folder = dirname( __FILE__ ) . '/' . 'traits';
 			foreach ( scandir( $folder ) as $filename ) {
