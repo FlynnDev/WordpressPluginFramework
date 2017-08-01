@@ -82,7 +82,7 @@ class Container implements Iterator {
 	 * @return $this
 	 */
 	public function add($slug, $default = false, $name = false, $tip = false, $type = 'text', $options = [] ){
-		$this->data[$slug] = new Single($slug, $default, $name, $tip, $type, $options);
+		$this->data[$slug] = new Single( $slug, $default, $name, $tip, $type, $options);
 		return $this;
 	}
 

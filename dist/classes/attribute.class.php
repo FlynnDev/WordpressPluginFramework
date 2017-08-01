@@ -1,6 +1,6 @@
 <?php
 namespace PluginFramework\V_1_2\Attributes;
-use PluginFramework\V_1_2\Options\Container;
+use PluginFramework\V_1_2\Options\Container as Options;
 
 require_once( 'options.class.php' );
 
@@ -11,6 +11,9 @@ class Single {
 	public $tip;
 	public $current;
 	public $type;
+	/**
+	 * @var Options
+	 */
 	public $options;
 
 	public function __construct($slug, $default = false, $name = false, $tip = false, $type = 'text', $options = [] ) {
@@ -18,7 +21,7 @@ class Single {
 		$this->default = $default ?: "";
 		$this->name = $name ?: ucwords(str_replace('_', ' ',$slug));
 		$this->tip = $tip ?: "";
-		$this->options = new Container($options);
+		$this->options = new Options($options);
 		$this->type = $type;
 	}
 

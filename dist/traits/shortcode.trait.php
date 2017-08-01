@@ -37,7 +37,14 @@
 		}
 
 		protected function atts($shortcode, $a = []) {
-			return shortcode_atts( $this->sc()->get($shortcode)->attributes ?: [], $a, $this->pre($shortcode));
+			$defaults = [];
+			foreach($this->sc()->get($shortcode)->attributes as $att){
+				$defaults[$att->name] = $att->default;
+			}
+
+			$new_a = shortcode_atts( $defaults ?: [], $a, $this->pre($shortcode));
+
+			return $this->sc()->get($shortcode)->attributes->import($new_a);
 		}
 
 		public function sc() {
