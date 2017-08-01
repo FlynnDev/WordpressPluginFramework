@@ -52,7 +52,7 @@ class Container implements Iterator {
 	/**
 	 * @param $slug
 	 *
-	 * @return $this
+	 * @return Single
 	 */
 	public function get($slug) {
 		if(!isset($this->data[$slug])) $this->data[$slug] = new Single($slug);
