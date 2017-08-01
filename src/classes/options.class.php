@@ -51,7 +51,7 @@ class Container implements \Iterator {
 	public function view($selected){
 		$v = [];
 		foreach($this->data as $k => $o){
-			$v[$k] = $o->view($selected);
+			$v[] = $o->view($selected);
 		}
 		return $v;
 	}
