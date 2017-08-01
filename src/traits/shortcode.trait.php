@@ -37,7 +37,7 @@
 		}
 
 		protected function atts($shortcode, $a = []) {
-			return shortcode_atts( $this->shortcodes[$shortcode]['attributes'] ?: [], $a, $this->pre($shortcode));
+			return shortcode_atts( $this->sc()->get($shortcode)->attributes ?: [], $a, $this->pre($shortcode));
 		}
 
 		public function sc() {
