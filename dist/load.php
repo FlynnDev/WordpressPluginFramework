@@ -1,7 +1,7 @@
 <?php
 /**
  * Package:  WordPress Plugin Framework
- * Version:  1.1.142
+ * Version:  1.1.143
  * Date:     31-07-2017
  * Copyright 2017 Mike Flynn - mflynn@flynndev.us
  */ 
