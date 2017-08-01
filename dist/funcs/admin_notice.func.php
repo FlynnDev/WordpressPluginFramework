@@ -1,5 +1,5 @@
 <?php
-namespace PluginFramework\V_1_1;
+namespace PluginFramework\V_1_2;
 
 if(! function_exists(__NAMESPACE__ . '\admin_notice')) {
 	function admin_notice($message) {
@@ -10,12 +10,12 @@ if(! function_exists(__NAMESPACE__ . '\admin_notice')) {
 
 if(! function_exists(__NAMESPACE__ . '\admin_notice_ver')) {
 	function admin_notice_ver(){
-		$message = __( 'The plugins ' . implode(', ', array_keys($GLOBALS['plugin_framework_v_1_1_plugins'])) . ' require PHP ', 'plugin-core' );
+		$message = __( 'The plugins ' . implode(', ', array_keys($GLOBALS['plugin_framework_v_1_2_plugins'])) . ' require PHP ', 'plugin-core' );
 	}
 }
 
 if(! function_exists(__NAMESPACE__ . '\admin_notice_settings')) {
 	function admin_notice_settings(){
-		$message = __( 'The plugins ' . implode(', ', array_keys($GLOBALS['plugin_framework_v_1_1_plugins'])) . ' require PHP Settings to be enabled: '. implode(', ',$GLOBALS['plugin_framework_v_1_1_php_settings']), 'plugin-core' );
+		$message = __( 'The plugins ' . implode(', ', array_keys($GLOBALS['plugin_framework_v_1_2_plugins'])) . ' require PHP Settings to be enabled: '. implode(', ',$GLOBALS['plugin_framework_v_1_2_php_settings']), 'plugin-core' );
 	}
 }

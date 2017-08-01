@@ -1,6 +1,6 @@
 <?php
-namespace PluginFramework\V_1_1\Options;
-use PluginFramework\V_1_1\DataIterator;
+namespace PluginFramework\V_1_2\Options;
+use PluginFramework\V_1_2\DataIterator;
 
 require_once('option.class.php');
 

@@ -1,8 +1,8 @@
 <?php
 //banner
 
-namespace PluginFramework\V_1_1;
-use PluginFramework\V_1_1\ShortCodes\Core as Shortcodes;
+namespace PluginFramework\V_1_2;
+use PluginFramework\V_1_2\ShortCodes\Core as Shortcodes;
 
 abstract class Core {
 

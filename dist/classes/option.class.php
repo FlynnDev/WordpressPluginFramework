@@ -1,5 +1,5 @@
 <?php
-namespace PluginFramework\V_1_1\Options;
+namespace PluginFramework\V_1_2\Options;
 
 class Single {
 	public $value;

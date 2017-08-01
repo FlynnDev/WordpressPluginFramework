@@ -1,7 +1,7 @@
 <?php
-namespace PluginFramework\V_1_1;
+namespace PluginFramework\V_1_2;
 
-if(empty($GLOBALS['plugin_framework_v_1_1_php_settings'])) $GLOBALS['plugin_framework_v_1_1_php_settings'] = array('allow_url_fopen');
+if(empty($GLOBALS['plugin_framework_v_1_2_php_settings'])) $GLOBALS['plugin_framework_v_1_2_php_settings'] = array('allow_url_fopen');
 
 if(!function_exists(__NAMESPACE__ . '\php_settings')){
 	function php_settings(){

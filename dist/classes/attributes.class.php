@@ -1,6 +1,6 @@
 <?php
-namespace PluginFramework\V_1_1\Attributes;
-use PluginFramework\V_1_1\DataIterator as AttributesIterator;
+namespace PluginFramework\V_1_2\Attributes;
+use PluginFramework\V_1_2\DataIterator as AttributesIterator;
 use Iterator;
 
 require_once('attribute.class.php');

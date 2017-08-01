@@ -1,6 +1,6 @@
 <?php
-namespace PluginFramework\V_1_1\ShortCodes;
-use PluginFramework\V_1_1\DataIterator as ShortCodeIterator;
+namespace PluginFramework\V_1_2\ShortCodes;
+use PluginFramework\V_1_2\DataIterator as ShortCodeIterator;
 use Iterator;
 
 require_once('attribute.class.php');

@@ -1,8 +1,8 @@
 <?php
-	namespace PluginFramework\V_1_1;
+	namespace PluginFramework\V_1_2;
 	/**
 	 * Trait Filters
-	 * @package PluginFramework\V_1_1
+	 * @package PluginFramework\V_1_2
 	 *
 	 * Add filter:
 	 *      Add method: test_filter_{filter_name} ($params...){ ... return $filtered; }

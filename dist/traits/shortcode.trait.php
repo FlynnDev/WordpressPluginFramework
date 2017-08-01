@@ -1,10 +1,10 @@
 <?php
-	namespace PluginFramework\V_1_1\ShortCodes;
-	use PluginFramework\V_1_1\ShortCodes\Container as ShortCodes;
-	use PluginFramework\V_1_1\Options\Container    as Options;
-	use PluginFramework\V_1_1\Options\Single       as Option;
-	use PluginFramework\V_1_1\Attributes\Container as Attributes;
-	use PluginFramework\V_1_1\Attributes\Single    as Attribute;
+	namespace PluginFramework\V_1_2\ShortCodes;
+	use PluginFramework\V_1_2\ShortCodes\Container as ShortCodes;
+	use PluginFramework\V_1_2\Options\Container    as Options;
+	use PluginFramework\V_1_2\Options\Single       as Option;
+	use PluginFramework\V_1_2\Attributes\Container as Attributes;
+	use PluginFramework\V_1_2\Attributes\Single    as Attribute;
 
 	trait Core {
 

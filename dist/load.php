@@ -1,16 +1,16 @@
 <?php
 /**
  * Package:  WordPress Plugin Framework
- * Version:  1.1.153
+ * Version:  1.2.1
  * Date:     01-08-2017
  * Copyright 2017 Mike Flynn - mflynn@flynndev.us
  */ 
  
 
 
-namespace PluginFramework\V_1_1;
+namespace PluginFramework\V_1_2;
 
-if(empty($GLOBALS['plugin_framework_v_1_1_phpver'])) $GLOBALS['plugin_framework_v_1_1_phpver'] = '5.4.0';
+if(empty($GLOBALS['plugin_framework_v_1_2_phpver'])) $GLOBALS['plugin_framework_v_1_2_phpver'] = '5.4.0';
 
 require_once("funcs/check_version.func.php");
 require_once("funcs/admin_notice.func.php");

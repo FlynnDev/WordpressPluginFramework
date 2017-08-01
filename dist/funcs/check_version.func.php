@@ -1,5 +1,5 @@
 <?php
-	namespace PluginFramework\V_1_1;
+	namespace PluginFramework\V_1_2;
 	if(!function_exists(__NAMESPACE__ . '\check_version')) {
 		/**
 		 * Check PHP deps

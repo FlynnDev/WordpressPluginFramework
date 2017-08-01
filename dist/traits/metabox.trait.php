@@ -1,8 +1,8 @@
 <?php
-namespace PluginFramework\V_1_1;
+namespace PluginFramework\V_1_2;
 /**
  * Trait MetaBox
- * @package PluginFramework\V_1_1
+ * @package PluginFramework\V_1_2
  *
  * This has not been tested.
  *
