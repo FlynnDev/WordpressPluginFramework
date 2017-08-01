@@ -7,7 +7,7 @@ class Options implements \Iterator {
 	use Iterator;
 
 	public function __construct($data) {
-		$this->position = 0;
+		$this->start();
 		$this->import($data);
 	}
 
@@ -33,7 +33,7 @@ class Options implements \Iterator {
 
 	public function view($selected){
 		$v = [];
-		foreach($this as $k => $o){
+		foreach($this->data as $k => $o){
 			$v[$k] = $o->view($selected);
 		}
 		return $v;

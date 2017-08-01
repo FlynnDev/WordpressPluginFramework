@@ -7,7 +7,7 @@ class Attributes implements \Iterator {
 	use Iterator;
 
 	public function __construct($data = []) {
-		$this->position = 0;
+		$this->start();
 		$this->import($data);
 	}
 
