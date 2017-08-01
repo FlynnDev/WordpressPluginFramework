@@ -30,4 +30,8 @@ class Single {
 	public function get(){
 		return $this->current ?: $this->default;
 	}
+
+	public function __toString() {
+		return $this->get();
+	}
 }
