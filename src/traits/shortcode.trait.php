@@ -40,9 +40,9 @@
 			return shortcode_atts( $this->shortcodes[$shortcode]['attributes'] ?: [], $a, $this->pre($shortcode));
 		}
 
-		public function sc($slug) {
+		public function sc() {
 			if(empty($this->shortcodes)) $this->shortcodes = new ShortCodes();
-			return $this->shortcodes->get($slug);
+			return $this->shortcodes;
 		}
 
 		/**
@@ -54,7 +54,7 @@
 
 			// Method method
 			foreach($shortcode_methods as $method) {
-				$this   ->shortcodes->get(Single::_slug($method))
+				$this   ->sc()->get(Single::_slug($method))
 				        ->init_method($this->_t, $method)
 				        ->metadata();
 			}
