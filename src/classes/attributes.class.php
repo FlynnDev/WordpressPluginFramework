@@ -13,6 +13,11 @@ class Container implements Iterator {
 	 */
 	protected $data = [];
 
+	/**
+	 * Container constructor.
+	 *
+	 * @param array $data
+	 */
 	public function __construct($data = []) {
 		$this->start();
 		$this->import($data);
@@ -37,21 +42,45 @@ class Container implements Iterator {
 		return $this;
 	}
 
+	/**
+	 *
+	 */
 	public function save() {
 		// Saves current state
 	}
 
+	/**
+	 * @param $slug
+	 *
+	 * @return $this
+	 */
 	public function get($slug) {
 		if(!isset($this->data[$slug])) $this->data[$slug] = new Single($slug);
 		return $this->data[$slug];
 	}
 
+	/**
+	 * @param $slug
+	 * @param $value
+	 *
+	 * @return $this
+	 */
 	public function set($slug, $value){
 		if(!isset($this->data[$slug])) $this->data[$slug] = new Single($slug);
 		$this->data[$slug]->set($value);
 		return $this;
 	}
 
+	/**
+	 * @param $slug
+	 * @param bool $default
+	 * @param bool $name
+	 * @param bool $tip
+	 * @param string $type
+	 * @param array $options
+	 *
+	 * @return $this
+	 */
 	public function add($slug, $default = false, $name = false, $tip = false, $type = 'text', $options = [] ){
 		$this->data[$slug] = new Single($slug, $default, $name, $tip, $type, $options);
 		return $this;
