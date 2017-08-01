@@ -1,12 +1,12 @@
 <?php
-	namespace PluginFramework;
-	use PluginFramework\ShortCodes\Container as ShortCodesObj;
-	trait Shortcodes {
+	namespace PluginFramework\ShortCodes;
+	use PluginFramework\ShortCodes\Container as ShortCodes;
+	trait Core {
 
 		public $shortcode_prefix = false;
 
 		/**
-		 * @var \PluginFramework\ShortCodes\Container
+		 * @var ShortCodes
 		 */
 		public $shortcodes;
 
@@ -36,7 +36,7 @@
 		}
 
 		public function sc($slug) {
-			if(empty($this->shortcodes)) $this->shortcodes = new ShortCodesObj();
+			if(empty($this->shortcodes)) $this->shortcodes = new ShortCodes();
 			return $this->shortcodes->get($slug);
 		}
 
@@ -49,7 +49,7 @@
 
 			// Method method
 			foreach($shortcode_methods as $method) {
-				$this   ->sc(ShortCode::_slug($method))
+				$this   ->shortcodes->get(Single::_slug($method))
 				        ->init_method($this->_t, $method)
 				        ->metadata();
 			}

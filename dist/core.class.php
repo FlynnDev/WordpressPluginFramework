@@ -2,8 +2,9 @@
 //banner
 
 namespace PluginFramework\V_1_1;
+use PluginFramework\V_1_1\ShortCodes\Core as Shortcodes;
 
-abstract class Core{
+abstract class Core {
 
 	use PluginInfo, Helpers, Hooks, Errors, View, Data, Shortcodes, Security, Styles, Scripts, Pages, Filters, MetaBox;
 

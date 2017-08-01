@@ -12,6 +12,13 @@ class Container implements Iterator {
 		$this->start();
 	}
 
+	/**
+	 * Get Shortcode
+	 *
+	 * @param $slug string
+	 *
+	 * @return Single
+	 */
 	public function get($slug) {
 		if(!isset($this->data[$slug])) $this->data[$slug] = new Single($slug);
 		return $this->data[$slug];
