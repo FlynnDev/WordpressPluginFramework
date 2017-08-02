@@ -37,7 +37,9 @@
 		}
 
 		protected function atts($shortcode, $a = []) {
+
 			$defaults = [];
+
 			foreach($this->sc()->get($shortcode)->attributes as $att){
 				$defaults[$att->name] = $att->default;
 			}
@@ -45,11 +47,21 @@
 			$new_a = shortcode_atts( $defaults ?: [], $a, $this->pre($shortcode));
 
 			return $this->sc()->get($shortcode)->attributes->import($new_a);
+
 		}
 
-		public function sc() {
-			if(empty($this->shortcodes)) $this->shortcodes = new ShortCodes();
-			return $this->shortcodes;
+		/**
+		 * @param bool $slug
+		 *
+		 * @return Container|Single
+		 */
+		public function sc($slug = false) {
+			if(!$slug) return $this->shortcodes;
+			else return $this->shortcodes->get($slug);
+		}
+
+		public function __construct() {
+			$this->shortcodes = new ShortCodes();
 		}
 
 		/**
@@ -61,7 +73,7 @@
 
 			// Method method
 			foreach($shortcode_methods as $method) {
-				$this   ->sc()->get(Single::_slug($method))
+				$this   ->sc(Single::_slug($method))
 				        ->init_method($this->_t, $method)
 				        ->metadata();
 			}
