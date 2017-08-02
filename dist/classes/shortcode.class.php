@@ -101,7 +101,7 @@ class Single {
 		$this->prefix   = $this->plugin->shortcode_prefix;
 		$this->function = $closure;
 		$this->name     = $this->pre($this->slug);
-		$this->atts->import($this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), [] ));
+		// $this->atts->import($this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), [] ));
 
 		$this->callable = $this->function;
 		$this->launch();
@@ -123,7 +123,7 @@ class Single {
 		$this->prefix   = $this->plugin->shortcode_prefix;
 		$this->method   = $method;
 		$this->name     = $this->pre($this->slug);
-		$this->atts->import($this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), [] ));
+		// $this->atts->import($this->plugin->pull( $this->plugin->concat($this->slug, 'atts'), [] ));
 
 		$this->callable = [&$this->plugin, $this->method];
 		$this->launch();
